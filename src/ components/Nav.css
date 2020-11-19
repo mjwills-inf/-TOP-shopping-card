@@ -1,2 +1,15 @@
 nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: lightgrey;
+}
+
+.nav-links {
+  width: 50%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0px;
 }
