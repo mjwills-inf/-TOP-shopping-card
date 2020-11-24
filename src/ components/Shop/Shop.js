@@ -14,7 +14,6 @@ export default function Shop() {
   const fetchShopData = async () => {
     const data = await fetch('https://fakestoreapi.com/products/')
       .then(response=>response.json(), reason =>console.log(reason))
-    console.log(data)
     setItems(data)
   }
 
