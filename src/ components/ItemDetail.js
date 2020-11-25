@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import Sidebar from './Sidebar'
+
 export default function ItemDetail(match) {
 
   const [item, setItem] = useState({})

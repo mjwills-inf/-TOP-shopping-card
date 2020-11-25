@@ -11,6 +11,19 @@ import ItemDetail from './ components/ItemDetail';
 function App() {
 
   const [items, setItems] = useState([])
+  const [cart, setCart] = useState([])
+
+  const addToCart = () => {
+
+  }
+
+  const removeFromCart = () => {
+
+  }
+
+  const amendQuantity = () => {
+    
+  }
 
   useEffect(() => {
     fetchShopData()
@@ -29,9 +42,15 @@ function App() {
 
         <Switch>       
           <Route path="/" exact component={Home} />          
+          
           <Route path="/shop" exact>
             <Shop items={items} />
           </Route>
+
+          <Route>
+            <Cart cart={cart}/>
+          </Route>
+          
           <Route path="/shop/:id" component={ItemDetail}/>
                           
         </Switch>
