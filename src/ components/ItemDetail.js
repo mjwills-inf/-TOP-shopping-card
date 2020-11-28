@@ -2,26 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 import Sidebar from './Sidebar'
 
-export default function ItemDetail(match) {
-
-  const [item, setItem] = useState({})
+export default function ItemDetail({match}) {
 
   useEffect(() => {
-    fetchItemData()
-  }, []);
-
-  const fetchItemData = async () => {
-    const data = await fetch(`https://fakestoreapi.com/products/${match.match.params.id}`)
-    const dataItem = await data.json()
-    console.log("dataItem:", dataItem)
-    setItem(dataItem)
-
-    console.log("item:", item)
-  }
+    console.log("match", match)
+  })
+  
 
   return (
     <div>
-      {item.title}
+      <Sidebar />
+      ItemDetail
     </div>
   )
 }

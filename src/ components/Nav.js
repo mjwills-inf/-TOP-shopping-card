@@ -7,18 +7,23 @@ export default function Nav() {
     <nav>
       <h3>Logo</h3>
         <ul className="nav-links">
+          
           <Link to="/">
             <li>Home</li>
           </Link>
+          
           <Link to="/shop">
-            <li>Shop</li>
+            <li>Shop</li>          
           </Link>
+        
         </ul>
+      
       <Link to="/cart">
         <span>
           Cart
         </span>
       </Link>
+
     </nav>    
   )
 }

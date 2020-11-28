@@ -33,6 +33,7 @@ function App() {
     const data = await fetch('https://fakestoreapi.com/products/')
       .then(response=>response.json(), reason =>console.log(reason))
     setItems(data)
+    console.log(data)
   }
 
   return (
@@ -45,13 +46,15 @@ function App() {
           
           <Route path="/shop" exact>
             <Shop items={items} />
-          </Route>
-
-          <Route>
+          </Route>        
+          
+          <Route path="/cart" exact>
             <Cart cart={cart}/>
           </Route>
-          
-          <Route path="/shop/:id" component={ItemDetail}/>
+
+          <Route path="/shop/:id" exact>
+            <ItemDetail />
+          </Route>
                           
         </Switch>
 
