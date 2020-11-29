@@ -6,7 +6,7 @@ import Nav from './ components/Nav';
 import Home from './ components/Home/Home';
 import Shop from './ components/Shop/Shop';
 import Cart from './ components/Cart/Cart'
-import ItemDetail from './ components/ItemDetail';
+import ItemDetail from './ components/Shop/ItemDetail';
 
 function App() {
 
@@ -52,9 +52,9 @@ function App() {
             <Cart cart={cart}/>
           </Route>
 
-          <Route path="/shop/:id" exact>
-            <ItemDetail />
-          </Route>
+          <Route path="/shop/:id" exact component={ItemDetail} />
+            
+          
                           
         </Switch>
 

@@ -1,0 +1,7 @@
+.shop {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: space-between;
+  min-height: 90vh;
+  background:yellow;
+}
