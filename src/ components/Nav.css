@@ -3,7 +3,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background-color: lightgrey;
+  background-color: rgb(50, 50, 50);
+  color: white;
 }
 
 .nav-links {
@@ -12,4 +13,10 @@ nav {
   display: flex;
   justify-content: space-around;
   padding: 0px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }

@@ -1,11 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 import Nav from './ components/Nav';
 import Home from './ components/Home/Home';
 import Shop from './ components/Shop/Shop';
-import Cart from './ components/Cart/Cart'
+import Cart from './ components/Cart/Cart';
 import ItemDetail from './ components/Shop/ItemDetail';
 
 function App() {
@@ -13,8 +13,13 @@ function App() {
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
 
-  const addToCart = () => {
-
+  const addToCart = (item) => {
+    if(cart.some(cartItem => cartItem.id === item.id)){
+      // increse quant
+    } else {
+      item.quantity = 1
+      setCart(cart.push(item))
+    }
   }
 
   const removeFromCart = () => {
