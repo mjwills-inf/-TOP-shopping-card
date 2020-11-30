@@ -21,9 +21,8 @@ export default function Shop(props) {
                 <div key={item.id} className="item-card">
                 
                   <Link to={`/shop/${item.id}`}>
-                    {item.title}
+                    <img src={`${item.image}`} className="image" />
                   </Link>
-                
                 
                 </div>
             ))}
