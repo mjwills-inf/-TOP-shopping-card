@@ -13,32 +13,6 @@ function App() {
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
 
-  const addToCart = (item) => {
-    console.log("cart arg item:", item)
-    
-    let itemCopy = {...item}
-    itemCopy.quantity = 1
-    console.log("itemCopy", itemCopy)
-  
-    let cartCopy = [...cart]
-    console.log("cartCopy", cartCopy)
-
-    cartCopy.push(itemCopy)
-    console.log("cartCopy after push", cartCopy)
-    
-    setCart(cartCopy)
-    
-
-  }
-
-  const removeFromCart = () => {
-
-  }
-
-  const amendQuantity = () => {
-    
-  }
-
   useEffect(() => {
     fetchShopData()
   }, [])
@@ -49,13 +23,41 @@ function App() {
     setItems(data)
     console.log(data)
   }
+  
+  // copying items to avoid errors in changing original objects?
+  const addToCart = (item) => {
+    let itemCopy = {...item}
+    let cartCopy = [...cart]
+    let targetItem = cartCopy.find(item => item.id === itemCopy.id)
+    if (targetItem) {
+      targetItem.quantity += 1
+    } else {
+      itemCopy.quantity = 1
+      cartCopy.push(itemCopy)
+    }    
+    setCart(cartCopy)
+  }
+
+  const removeFromCart = (id) => {
+    let cartCopy = [...cart]
+    cartCopy.filter(item => item.id === id)
+    setCart(cartCopy)
+  }
+
+  const amendQuantity = () => {
+    
+  }
+
+  useEffect(() => {
+    console.log("useEffect cart: ", cart)
+  })
 
   return (
     <Router> 
       <div className="App">
         <Nav />
-
         <Switch>       
+          
           <Route path="/" exact component={Home} />          
           
           <Route path="/shop" exact>
@@ -65,18 +67,16 @@ function App() {
           <Route path="/cart" exact>
             <Cart cart={cart}/>
           </Route>
-
+          
+          {/* render used below instead of component={} so that props can be passed */}
           <Route 
             path="/shop/:id" exact 
             render={(props) => (
               <ItemDetail {...props} addToCart={addToCart} />
             )}
-          />
-            
-          
+          />       
                           
         </Switch>
-
       </div>
     </Router>
   );
