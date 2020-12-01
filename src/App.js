@@ -44,13 +44,16 @@ function App() {
     setCart(cartCopy)
   }
 
-  const amendQuantity = () => {
-    
+  const amendQuantity = (id, quantity) => {
+    let cartCopy = [...cart]
+    let targetItem = cartCopy.find(item => item.id === id)
+    targetItem.quantity = quantity;
+    setCart(cartCopy)
   }
 
-  useEffect(() => {
-    console.log("useEffect cart: ", cart)
-  })
+  // useEffect(() => {
+  //   console.log("useEffect cart: ", cart)
+  // })
 
   return (
     <Router> 
@@ -61,18 +64,22 @@ function App() {
           <Route path="/" exact component={Home} />          
           
           <Route path="/shop" exact>
-            <Shop items={items} />
+            <Shop items={items} cart={cart}/>
           </Route>        
           
           <Route path="/cart" exact>
-            <Cart cart={cart}/>
+            <Cart 
+              cart={cart}
+              removeFromCart={removeFromCart}
+              amendQuantity={amendQuantity}
+            />
           </Route>
           
           {/* render used below instead of component={} so that props can be passed */}
           <Route 
             path="/shop/:id" exact 
             render={(props) => (
-              <ItemDetail {...props} addToCart={addToCart} />
+              <ItemDetail {...props} addToCart={addToCart} cart={cart} />
             )}
           />       
                           

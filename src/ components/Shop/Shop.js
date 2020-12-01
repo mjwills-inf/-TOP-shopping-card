@@ -11,7 +11,7 @@ export default function Shop(props) {
 
   return (
     <div className="shop">
-      <Sidebar />
+      <Sidebar cart={props.cart}/>
 
       <div className="shop-main">      
 

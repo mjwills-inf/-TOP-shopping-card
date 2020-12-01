@@ -14,6 +14,7 @@ export default function ItemDetail(props) {
   const getItems = async () => {
     let data = await fetch(`https://fakestoreapi.com/products/${props.match.params.id}`)
     .then(response=>response.json(), reject=>console.log(reject))
+    data.price = data.price.toFixed(2)
     setItem(data)
   }
   
@@ -23,12 +24,12 @@ export default function ItemDetail(props) {
 
   return (
     <div className="item-detail">
-      <Sidebar />
+      <Sidebar cart={props.cart}/>
         <div className="detail-main">
           <h4>{item.title}</h4>
           <img className="detail-image" src={`${item.image}`} alt={`${item.title}`}/>
           <p>{item.description}</p>
-          <p>{item.price}</p>
+          <p>£{item.price}</p>
           <input type="button" name="addToCart" 
             id="addToCart" value="Add To Cart" onClick={addToCart}/>
         </div>
