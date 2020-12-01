@@ -14,12 +14,21 @@ function App() {
   const [cart, setCart] = useState([])
 
   const addToCart = (item) => {
-    if(cart.some(cartItem => cartItem.id === item.id)){
-      // increse quant
-    } else {
-      item.quantity = 1
-      setCart(cart.push(item))
-    }
+    console.log("cart arg item:", item)
+    
+    let itemCopy = {...item}
+    itemCopy.quantity = 1
+    console.log("itemCopy", itemCopy)
+  
+    let cartCopy = [...cart]
+    console.log("cartCopy", cartCopy)
+
+    cartCopy.push(itemCopy)
+    console.log("cartCopy after push", cartCopy)
+    
+    setCart(cartCopy)
+    
+
   }
 
   const removeFromCart = () => {
@@ -57,7 +66,12 @@ function App() {
             <Cart cart={cart}/>
           </Route>
 
-          <Route path="/shop/:id" exact component={ItemDetail} />
+          <Route 
+            path="/shop/:id" exact 
+            render={(props) => (
+              <ItemDetail {...props} addToCart={addToCart} />
+            )}
+          />
             
           
                           

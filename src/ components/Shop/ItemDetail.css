@@ -1,0 +1,12 @@
+.item-detail {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: space-between;
+  min-height: 90vh;
+}
+
+.detail-image {
+  filter: grayscale(100%);
+  max-width: 400px;
+  max-height: 400px;
+}

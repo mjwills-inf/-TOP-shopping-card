@@ -3,30 +3,34 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../Sidebar'
 import './ItemDetail.css'
  
-export default function ItemDetail({ match }) {
+export default function ItemDetail(props) {
 
-  const [state, setState] = useState({})
+  const [item, setItem] = useState({})
 
   useEffect(() => {
-    console.log("match", match.params.id)
     getItems()
   }, [])
 
   const getItems = async () => {
-    let data = await fetch(`https://fakestoreapi.com/products/${match.params.id}`)
+    let data = await fetch(`https://fakestoreapi.com/products/${props.match.params.id}`)
     .then(response=>response.json(), reject=>console.log(reject))
-    setState(data)
+    setItem(data)
   }
   
+  const addToCart = () => {
+    props.addToCart(item)
+  }
 
   return (
     <div className="item-detail">
       <Sidebar />
         <div className="detail-main">
-          {state.title}
-          <img src={`${state.image}`}/>
-          {state.description}
-          {state.price}
+          <h4>{item.title}</h4>
+          <img className="detail-image" src={`${item.image}`} alt={`${item.title}`}/>
+          <p>{item.description}</p>
+          <p>{item.price}</p>
+          <input type="button" name="addToCart" 
+            id="addToCart" value="Add To Cart" onClick={addToCart}/>
         </div>
     </div>
   )
