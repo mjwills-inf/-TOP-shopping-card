@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import Sidebar from '../Sidebar'
 import './Shop.css'
 
 
@@ -11,7 +8,6 @@ export default function Shop(props) {
 
   return (
     <div className="shop">
-      <Sidebar cart={props.cart}/>
 
       <div className="shop-main">      
 

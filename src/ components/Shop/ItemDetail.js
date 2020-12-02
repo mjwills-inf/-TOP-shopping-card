@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import Sidebar from '../Sidebar'
 import './ItemDetail.css'
  
 export default function ItemDetail(props) {
@@ -27,7 +26,6 @@ export default function ItemDetail(props) {
 
   return (
     <div className="item-detail">
-      <Sidebar cart={props.cart}/>
         <div className="detail-main">
           <h4>{item.title}</h4>
           <img className="detail-image" src={`${item.image}`} alt={`${item.title}`}/>

@@ -52,10 +52,6 @@ function App() {
     setCart(cartCopy)
   }
 
-  // useEffect(() => {
-  //   console.log("useEffect cart: ", cart)
-  // })
-
   return (
     <Router> 
       <div className="App">

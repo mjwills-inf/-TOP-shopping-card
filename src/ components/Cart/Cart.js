@@ -13,6 +13,23 @@ export default function Cart(props) {
     props.removeFromCart(Number(id))
   }
 
+  const itemTotal = (item) => {
+    return Number(item.price) * item.quantity
+  }
+
+  const calcTotal = (cart) => {
+    if (cart.length === 0) {
+      return 0.00.toFixed(2)
+    } else {
+      let total = 0
+      for (let i=0; i<cart.length; i++) {
+        total += itemTotal(cart[i])
+      }
+      return total.toFixed(2)
+    }
+  }
+  
+
   return (
     <div className="cart">
       <h3>Your Cart</h3>
@@ -41,13 +58,19 @@ export default function Cart(props) {
                 {' '}at £{item.price}
               </label>
               <div className="del">
-                <input type="button" name="delete" 
+                <div>
+                  Item Total: £{''}{itemTotal(item)}  
+                </div> 
+                <input type="button" name="delete" className="del-button" 
                   value="Delete Item" onClick={handleDelete}/>  
-              </div>          
+              </div>      
             </div>
           </div>
 
         )}
+      </div>
+      <div className="total-pay">
+        Total to Pay: £{calcTotal(props.cart)}
       </div>
     </div>
   )
