@@ -39,12 +39,13 @@ function App() {
   }
 
   const removeFromCart = (id) => {
-    let cartCopy = [...cart]
-    cartCopy.filter(item => item.id === id)
+    let cartCopy = [...cart].filter(item => item.id !== id)
     setCart(cartCopy)
   }
 
   const amendQuantity = (id, quantity) => {
+    console.log("id", id)
+    console.log("quan", quantity)
     let cartCopy = [...cart]
     let targetItem = cartCopy.find(item => item.id === id)
     targetItem.quantity = quantity;
