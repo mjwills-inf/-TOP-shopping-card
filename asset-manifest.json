@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/-TOP-shopping-card/static/css/main.c4a1f8a1.chunk.css",
+    "main.js": "/-TOP-shopping-card/static/js/main.4f568879.chunk.js",
+    "main.js.map": "/-TOP-shopping-card/static/js/main.4f568879.chunk.js.map",
+    "runtime-main.js": "/-TOP-shopping-card/static/js/runtime-main.6477e83c.js",
+    "runtime-main.js.map": "/-TOP-shopping-card/static/js/runtime-main.6477e83c.js.map",
+    "static/js/2.523f4a32.chunk.js": "/-TOP-shopping-card/static/js/2.523f4a32.chunk.js",
+    "static/js/2.523f4a32.chunk.js.map": "/-TOP-shopping-card/static/js/2.523f4a32.chunk.js.map",
+    "index.html": "/-TOP-shopping-card/index.html",
+    "static/css/main.c4a1f8a1.chunk.css.map": "/-TOP-shopping-card/static/css/main.c4a1f8a1.chunk.css.map",
+    "static/js/2.523f4a32.chunk.js.LICENSE.txt": "/-TOP-shopping-card/static/js/2.523f4a32.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6477e83c.js",
+    "static/js/2.523f4a32.chunk.js",
+    "static/css/main.c4a1f8a1.chunk.css",
+    "static/js/main.4f568879.chunk.js"
+  ]
+}
